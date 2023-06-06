@@ -5,7 +5,7 @@
 
     <div class="global-container">
         <div class="card login-form">
-        <div class="card-body">
+        <div class="card-body " style="background: #252323; color: white;">
             <h3 class="card-title text-center">SIGN UP</h3>
             <h4 class="card-title text-center">Robotics Event Website</h4>
             <div class="card-text">
@@ -34,9 +34,10 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1">
                     </div>
-                    <a href="#" style="float:right;font-size:12px;">Forgot password?</a>
+                   
 
-                    <button type="submit" class="btn btn-primary btn-block mt-2">Register</button>
+                    <button type="submit" class="btn btn-primary btn-block mt-2" style="background: red
+                    ; border: red;">Register</button>
                     
                     <div class="sign-up mt-2">
                         Already have an account? <a href="{% url 'login_attempt'%}">Login</a>

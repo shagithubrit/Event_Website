@@ -5,7 +5,7 @@
 
     <div class="global-container">
         <div class="card login-form">
-        <div class="card-body">
+        <div class="card-body" style="background: #252323; color: white;">
             <h3 class="card-title text-center">LOG IN</h3>
             <h4 class="card-title text-center">Robotics Event Website</h4>
             {% if messages %}
@@ -31,7 +31,8 @@
                         <br><a href="#" style="float:right;font-size:12px;">Forgot password?</a>
                         <br>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-block" style="background: red
+                    ; border: red;">Sign in</button>
                     
                     <div class="sign-up">
                         Don't have an account? <a href="{% url 'register_attempt' %}">Create One</a>
