@@ -12,7 +12,7 @@ class Event(models.Model):
     event_name = models.CharField(max_length=50)
     event_desc = models.TextField()
     slug = models.CharField(max_length=50)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField('date_published',auto_now_add=True)
     event_createdby=models.CharField(max_length=50,default='')
     event_participant = models.ManyToManyField(Eventuser)    
     def __str__(self):

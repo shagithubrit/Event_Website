@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from datetime import datetime
 from events.models import Event
 
 # Create your views here.
@@ -38,3 +39,27 @@ def Edit(request):
     context = {'events':events}
     return redirect(request,'create_event',context)
 
+def Update(request,id):
+    if request.method == 'POST':
+        event_title = request.POST.get('event_title')
+        event_desc = request.POST.get('event_desc')
+        slug = request.POST.get('slug')
+        event_createdby = request.POST.get('event_createdby')
+
+        ev=Event(
+            id=id,
+            event_name=event_title,
+            event_desc=event_desc,
+            slug=slug,
+            time=datetime.now(),
+            event_createdby=event_createdby,
+        )
+        ev.save()
+        return redirect('create_event')
+    return redirect(request,'create_event.html')
+
+def Delete(request,id):
+    events=Event.objects.filter(id=id)
+    events.delete()
+    context = {'events':events}
+    return redirect('create_event')
