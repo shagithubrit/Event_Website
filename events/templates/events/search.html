@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Events{% endblock title %}
+{% block events %}active{% endblock events %}
+{% block body %}
+<div class="container-fluid">
+    
+
+    <div class="container text-center">
+        <div>
+            <h3 class="text-center">Search Results</h3>
+            
+            {% for event in events %}
+
+            <div class="card text-center my-2">
+                <div class="card-header">
+                    Organizer : {{event.event_createdby}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="/event/{{event.slug}}">{{event.event_name}}</a></h5>
+                  <p class="card-text">Description : {{event.event_desc | slice:50}}...</p>
+                  
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Register now</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register-Here</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Enter your good name here</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="recipient-email" class="col-form-label">Enter your email id here</label>
+            <input type="email" class="form-control" id="recipient-email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+                  <a class='mx-4' href="/event/{{event.slug}}">read more</a>
+                </div>
+                <div class="card-footer text-muted">
+                    last updated : {{event.time}}
+                </div>
+              </div>
+
+                {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
