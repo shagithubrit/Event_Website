@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{event.event_name |safe}}{% endblock title %}
+{% block body %}
+    <div class = 'container text-center'>
+
+        <h2 class="card-title mb-2 cardtext">{{event.event_name}}</h2>
+        <p class="card-text cardtext my-0">Description : {{event.event_desc | safe}}</p>
+        <p class="card-text cardtext my-0">Organizer : {{event.event_createdby}}</p>
+        <p class="card-text cardtext my-0">last updated : {{event.time}}</p>
+        <div>
+        <a class="mx-4" href='/event' class="card-text cardlink" target='_blank' rel='noreferrer'>Register Now</a>
+        
+    
+    </div>
+{% endblock body %}
