@@ -10,4 +10,5 @@ urlpatterns = [
     path('edit', views.Edit, name='edit'),
     path('update/<str:id>', views.Update, name='update'),
     path('delete/<str:id>', views.Delete, name='delete'),
+    path('search', views.search, name='search'),
 ]   

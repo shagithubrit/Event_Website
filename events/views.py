@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from datetime import datetime
 from events.models import Event
 
@@ -63,3 +63,12 @@ def Delete(request,id):
     events.delete()
     context = {'events':events}
     return redirect('create_event')
+
+
+def search(request):
+    query = request.GET['query']
+    events = Event.objects.filter(event_name__icontains=query)
+    params = {'events':events}
+
+    return render(request,'search.html',params)
+     
