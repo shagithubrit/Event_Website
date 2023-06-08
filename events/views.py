@@ -9,7 +9,7 @@ def event(request):
     return render(request, 'events.html',context)
 
 def eventpost(request,slug):
-    event = Event.objects.filter(slug=slug).first()
+    event = Event.objects.filter(id=id).first()
     context = {'event':event}
     return render(request,'event.html',context)
 

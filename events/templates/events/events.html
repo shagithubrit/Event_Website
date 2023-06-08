@@ -41,7 +41,7 @@
                     Organizer : {{event.event_createdby}}
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title"><a href="/event/{{event.slug}}">{{event.event_name}}</a></h5>
+                  <h5 class="card-title"><a href="/event/{{event.id}}">{{event.event_name}}</a></h5>
                   <p class="card-text">Description : {{event.event_desc | slice:50}}...</p>
                   
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Register now</button>
@@ -78,7 +78,7 @@
 
 
 
-                  <a class='mx-4' href="/event/{{event.slug}}">read more</a>
+                  <a class='mx-4' href="/event/{{event.id}}">read more</a>
                 </div>
                 <div class="card-footer text-muted">
                     last updated : {{event.time}}
