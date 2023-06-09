@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Robotics event website  Article Page</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <style>
+body {
+    background: url('https://img.freepik.com/premium-photo/robot-writing-desk_845712-397.jpg?w=1060') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+  </style>
+  <body>
+    <header class="wrapper">
+      <h1>
+        <a href="{% url 'home' %}"
+          ><img src="" alt="Robotics Event Article Page"
+        /></a>
+      </h1>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <form
+              class="logout-link"
+              action="{% url 'accounts:logout' %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <li><a href="{% url 'articles:create' %}" class="highlight" </a>New Article</li>
+          {% else %}
+          <li><a href="{% url 'accounts:login' %}">Login</a></li>
+          <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+          {% endif%}
+        </ul>
+      </nav>
+    </header>
+    <div class="wrapper">{% block content %} {% endblock %}</div>
+  </body>
+</html> 
+<!-- "{% static 'logo.png' %} " -->
